@@ -9,17 +9,21 @@ editor: visual
 
 # Enoncé du TD5
 
-Les données sont extraites de l'enquête *Trajectoires et Origines (2019-2020)* s'intéressant en particulier aux immigrés (nommés ici « G1 ») et aux descendants d'immigrés (enfants d'un ou deux immigrés, nommés « G2 ») résidant en France métropolitaine. Les personnes originaires ou descendantes des régions d'Outre-Mer ont également été surreprésentées dans l'échantillon de l'enquête. Enfin, l'enquête a également interrogé des personnes sans ascendance migratoire (« population majoritaire »), permettant de comparer le poids des origines par rapport à la population qui n'a pas connu de trajectoire migratoire depuis au moins deux générations.
+Les données sont extraites de l'enquête *Trajectoires et Origines (2019-2020)* s'intéressant en particulier aux immigrés (nommés ici « G1 ») et aux descendants d'immigrés (enfants d'un ou deux immigrés, nommés « G2 ») résidant en France métropolitaine. Les personnes originaires ou descendantes des régions d'Outre-Mer ont également été surreprésentées dans l'échantillon de l'enquête. Enfin, l'enquête a également interrogé des personnes sans ascendance migratoire (« population majoritaire »), la composition de l'échantillon permettant ainsi de comparer le poids des origines par rapport à la population qui n'a pas d'ascendance migratoire sur au moins deux générations.
 
-Dans les données présentées (fichier « tab1.csv »), on a croisé le lien à la migration et l'origine géographique (en lignes) avec la profession, codée suivant la nomenclature des Professions et Catégories Socioprofessionnelles (version de 2003). On se pose la question de l'association entre origines migratoires et situation professionnelle : les immigrés et leurs descendants, suivant leur origine géographique, ont-ils plus de chances d'appartenir à certaines professions ? En particulier, sont-ils plus souvent en bas de la hiérarchie des professions ou au contraire en haut ? Quelles distinctions existe-t-il au sein du monde des professions qui rendent de la segmentation du marché du travail suivant l'origine migratoire ?
+Dans les données présentées (fichier « tab1.csv »), on a croisé le lien à la migration et l'origine géographique (en lignes) avec la profession, codée suivant la nomenclature des Professions et Catégories Socioprofessionnelles (en colonne).
 
-Le script R « TD5.R » propose quelques lignes de commande permettant de répondre aux questions suivantes et vous pouvez également vous appuyer sur les scripts de la séance précédente pour compléter ce travail. Les données sont extraites de l'enquête *Trajectoires et Origines (2019-2020)* s'intéressant en particulier aux immigrés (nommés ici « G1 ») et aux descendants d'immigrés (enfants d'un ou deux immigrés, nommés « G2 ») résidant en France métropolitaine. Les personnes originaires ou descendantes des régions d'Outre-Mer ont également été surreprésentées dans l'échantillon de l'enquête. Enfin, l'enquête a également interrogé des personnes sans ascendance migratoire (« population majoritaire »), permettant de comparer le poids des origines par rapport à la population qui n'a pas connu de trajectoire migratoire depuis au moins deux générations.
+On se pose la question de l'association entre origines migratoires et situation professionnelle :
 
-Dans les données présentées (fichier « tab1.csv »), on a croisé le lien à la migration et l'origine géographique (en lignes) avec la profession, codée suivant la nomenclature des Professions et Catégories Socioprofessionnelles (version de 2003). On se pose la question de l'association entre origines migratoires et situation professionnelle : les immigrés et leurs descendants, suivant leur origine géographique, ont-ils plus de chances d'appartenir à certaines professions ? En particulier, sont-ils plus souvent en bas de la hiérarchie des professions ou au contraire en haut ? Quelles distinctions existe-t-il au sein du monde des professions qui rendent de la segmentation du marché du travail suivant l'origine migratoire ?
+-   Les immigrés et leurs descendants, suivant leur origine géographique, ont-ils plus de chances d'appartenir à certaines professions ?
 
-Le script R « TD5.R » propose quelques lignes de commande permettant de répondre aux questions suivantes et vous pouvez également vous appuyer sur les scripts de la séance précédente pour compléter ce travail.
+-   En particulier, sont-ils plus souvent en bas de la hiérarchie des professions ou au contraire en haut ?
 
-*Ceci est un corrigé rapide qui peut être complété de manière plus détaillée en examinant davantage les plans factoriels et en interprétant davantage sociologiquement la segmentation du marché du travail. Il vise simplement à donner quelques pistes d'analyses.*
+-   Quelles distinctions existe-t-il au sein du monde des professions qui rendent compte de la segmentation du marché du travail suivant l'origine migratoire ?
+
+Le script R « TD5.R » propose quelques lignes de commande permettant de répondre aux questions du TD et vous pouvez également vous appuyer sur les scripts de la séance précédente pour compléter ce travail.
+
+*Ceci est un corrigé rapide qui peut être complété de manière plus détaillée en examinant davantage les plans factoriels et en interprétant sociologiquement la segmentation du marché du travail. Il vise simplement à donner quelques pistes d'analyses.*
 
 ## Question 1
 
