@@ -89,5 +89,19 @@
     "title": "TD4",
     "section": "Interprétation des axes 2 et 3",
     "text": "Interprétation des axes 2 et 3\nLa même procédure peut être utilisée pour les axes 2 et 3.\nPour les profils-lignes :\n\n##Visualiser la contribution des lignes par rapport à la contribution moyenne  \nfviz_contrib(res.afc,choice=\"row\",axes =2)  \n\n\n\nfviz_contrib(res.afc,choice=\"row\",axes =3) \n\n\n\n\nPour les profils-colonnes :\n\n##Visualiser la contribution des lignes par rapport à la contribution moyenne   \nfviz_contrib(res.afc,choice=\"col\",axes =2)  \n\n\n\nfviz_contrib(res.afc,choice=\"col\",axes =3) \n\n\n\n\nVoyons comment se structure alors le premier axe dans le plan factoriel des axes 2 et 3 qui présente, on l’a déjà dit des principes d’associations secondaires par rapport à l’association principale dénotée sur le premier axe de l’analyse.\nL’axe 2 oppose les commerçants et les employés des entreprises qui rencontrent leur partenaire sur leur lieu de travail aux autres groupes sociaux. Il montre une spécificité du lieu de recontre pour ces deux groupes sociaux (par rapport aux autres professions où on se rencontre sur le temps de loisir).\nL’axe 3 oppose les gros agriculteurs et dans une moindre mesure les commerçants qui rencontrent leur partenaire par le biais d’annonces par rapport aux autres groupes sociaux (en particulier les ouvriers). C’est un axe d’opposition entre la rencontre par un médium versus par des contacts sociaux.\n\n##Visualiser la contribution des lignes et colonnes qui ont une contribution supérieure à la contribution moyenne sur les axes 2 et 3.     \nrowcontrib2&lt;-rownames(res.afc$row$contrib)[res.afc$row$contrib[,2]&gt;100/16]\n\ncolcontrib2&lt;-rownames(res.afc$col$contrib)[res.afc$col$contrib[,2]&gt;100/14] \n\nrowcontrib3&lt;-rownames(res.afc$row$contrib)[res.afc$row$contrib[,3]&gt;100/16] \n\ncolcontrib3&lt;-rownames(res.afc$col$contrib)[res.afc$col$contrib[,3]&gt;100/14] \n\nrowcontrib23&lt;-c(rowcontrib2,rowcontrib3) \ncolcontrib23&lt;-c(colcontrib2,colcontrib3)  \n\nfviz_ca_biplot(res.afc,axes=c(2,3),select.row = list(name = rowcontrib23),select.col=list(name=colcontrib23))  \n\n\n\n\nBien sur, rien n’empêche d’utiliser également la fonction explor() pour étudier les résultats de l’analyse !\nOn peut vouloir également mettre en relation nos interprétations en calculant les probabilités conjointes, les pourcentages en lignes et en colonne sur notre tableau de contingence. On écrira :\n\nmytable&lt;-as.table(as.matrix(TD4))  \nprop.table(mytable)*100 \n# cell percentages \nprop.table(mytable, 1)*100 \n# column percentages  \nprop.table(mytable, 2)*100 \n# column percentages"
+  },
+  {
+    "objectID": "Index.html",
+    "href": "Index.html",
+    "title": "Cours d’Analyse Des Données",
+    "section": "",
+    "text": "Cette page recense quelques éléments de corrections des Travaux Dirigés menés dans le cadre du cours d’Analyse Des Données en Licence 3 MIASHS et Sociologie à l’Université Versailles Saint-Quentin.\nLes documents de correction apparaissent ici au fur et à mesure du semestre. Pour toute question, vous pouvez m’envoyer un email !"
+  },
+  {
+    "objectID": "Index.html#analyse-des-données",
+    "href": "Index.html#analyse-des-données",
+    "title": "Cours d’Analyse Des Données",
+    "section": "",
+    "text": "Cette page recense quelques éléments de corrections des Travaux Dirigés menés dans le cadre du cours d’Analyse Des Données en Licence 3 MIASHS et Sociologie à l’Université Versailles Saint-Quentin.\nLes documents de correction apparaissent ici au fur et à mesure du semestre. Pour toute question, vous pouvez m’envoyer un email !"
   }
 ]

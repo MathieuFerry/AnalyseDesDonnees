@@ -1,0 +1,13 @@
+---
+title: "Cours d'Analyse Des Données"
+listing:
+  contents: "*.qmd"
+  sort: "date"
+  type: table
+---
+
+## Analyse Des données
+
+Cette page recense quelques éléments de corrections des Travaux Dirigés menés dans le cadre du cours d'Analyse Des Données en Licence 3 MIASHS et Sociologie à l'Université Versailles Saint-Quentin.
+
+Les documents de correction apparaissent ici au fur et à mesure du semestre. Pour toute question, vous pouvez m'envoyer un email !
