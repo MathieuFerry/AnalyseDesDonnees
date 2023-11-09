@@ -1,0 +1,37 @@
+---
+title: "TD7"
+format:
+  html: 
+      embed-resources: true
+  pdf: default
+editor: visual
+---
+
+La base de données est tirée du package ade4 et présente les résultats d'une enquête menée auprès de 810 clients d'une banque. Le dictionnaire des données de la base peut être consulté [ici](https://pbil.univ-lyon1.fr/ade4/ade4-html/banque.html).
+
+```{r}
+#| warning: false
+
+library(readr)
+library(FactoMineR)
+library(factoextra)
+library(explor)
+library(GDAtools)
+
+setwd("E:/Enseignements/Cours UVSQ/Année 2023-2024/L3 Sociologie Analyse des données/TD/TD7")
+enq<-read_csv("TD7.csv")
+```
+
+Pour réaliser l'ACM telle qu'indiquée sur l'énoncé, il faut sélectionner les variables présentes dans l'analyse.
+
+```{r}
+enq1<-subset(enq,select=c(csp,age,sexe,
+                          assurvi,cableue,eparliv,interdit,duree,credcon,soldevu,oppo,credhab))
+```
+
+Il va falloir indiquer à la fonction MCA le numéro de colonne des variables supplémentaires. Ici, on a créé enq1 de telle sorte qu'elles soient dans les trois premières colonnes.
+
+```{r}
+res.acm1<-MCA(enq1,quali.sup=c(1,2,3),graph=F)
+modif.rate(res.acm1)
+```
