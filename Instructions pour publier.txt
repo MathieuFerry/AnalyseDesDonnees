@@ -11,9 +11,14 @@ quarto render Nom.qmd
 
 git add .
 git commit -m "Correction25/10/23"
-
 (git remote add origin https://github.com/MathieuFerry/AnalyseDesDonnees.git)
-
 git branch -M main
+git push -u origin main
 
+
+
+git add .
+git commit -m "Correction20/11/23"
+git remote add origin https://github.com/MathieuFerry/AnalyseDesDonnees.git
+git branch -M main
 git push -u origin main

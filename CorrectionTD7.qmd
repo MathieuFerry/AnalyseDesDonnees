@@ -7,6 +7,8 @@ format:
 editor: visual
 ---
 
+*Note : ce TD comprend une partie d'exercice sur table corrigée en séance.*
+
 La base de données est tirée du package ade4 et présente les résultats d'une enquête menée auprès de 810 clients d'une banque. Le dictionnaire des données de la base peut être consulté [ici](https://pbil.univ-lyon1.fr/ade4/ade4-html/banque.html).
 
 ```{r}
@@ -27,11 +29,126 @@ Pour réaliser l'ACM telle qu'indiquée sur l'énoncé, il faut sélectionner le
 ```{r}
 enq1<-subset(enq,select=c(csp,age,sexe,
                           assurvi,cableue,eparliv,interdit,duree,credcon,soldevu,oppo,credhab))
+
+str(enq1)
 ```
 
-Il va falloir indiquer à la fonction MCA le numéro de colonne des variables supplémentaires. Ici, on a créé enq1 de telle sorte qu'elles soient dans les trois premières colonnes.
+Il va falloir indiquer à la fonction MCA le numéro de colonne des variables supplémentaires. Ici, on a créé enq1 de telle sorte qu'elles soient dans les trois premières colonnes, donc on utilise l'argument quali.sup de la fonction MCA, où on indique le vecteur c(1,2,3).
 
 ```{r}
 res.acm1<-MCA(enq1,quali.sup=c(1,2,3),graph=F)
-modif.rate(res.acm1)
+
+```
+
+On peut vérifier nos résultats sur les valeurs propres que nous montrions tout à l'heure. Concernant le critère de Kaiser :
+
+```{r}
+res.acm1$eig[,1]>mean(res.acm1$eig[,1])
+```
+
+Concernant le critère du coude, on projette l'éboulis des valeurs propres.
+
+```{r}
+fviz_eig(res.acm1)
+```
+
+Examinons le nuage des individus sur le premier plan. Le nuage ne semble pas présenter de forme particulière sur le premier plan de l'ACM.
+
+```{r}
+fviz_mca_ind(res.acm1,alpha.ind = "contrib",label="none")
+```
+
+On regarde la projection des modalités actives qui ont une contribution supérieure à la contribution moyenne sur l'axe 1. On a un axe structuré par une opposition entre instabilité et solvabilité bancaire.
+
+```{r}
+contrib1<-rownames(res.acm1$var$contrib)[res.acm1$var$contrib[,1]>100/nrow(res.acm1$var$contrib)]
+fviz_mca_var(res.acm1,axes=c(1,2),
+             select.var=list(name = contrib1))
+```
+
+Les modalités supplémentaires significativement associées à l'axe peuvent être projetées de la manière suivante :
+
+```{r}
+sigsup1<-rownames(res.acm1$quali.sup$v.test)[abs(res.acm1$quali.sup$v.test[,1])>1.96]
+fviz_mca_var(res.acm1,axes=c(1,2),
+             select.var=list(name = sigsup1))
+```
+
+Il peut être judicieux de représenter les variables actives et supplémentaires sur le même plan. A noter que les variables actives sont beaucoup plus dispersées que les variables supplémentaires, ainsi on n'"explique" pas l'entièreté de la variabilité des pratiques bancaires avec les variables sociodémographiques prises en compte ici.
+
+```{r}
+fviz_mca_var(res.acm1,axes=c(1,2),
+             select.var=list(name = c(sigsup1,contrib1)))
+```
+
+Faisons la même chose pour l'axe 2.
+
+```{r}
+contrib2<-rownames(res.acm1$var$contrib)[res.acm1$var$contrib[,2]>100/nrow(res.acm1$var$contrib)]
+sigsup2<-rownames(res.acm1$quali.sup$v.test)[abs(res.acm1$quali.sup$v.test[,2])>1.96]
+fviz_mca_var(res.acm1,axes=c(1,2),
+             select.var=list(name = c(sigsup2,contrib2)))
+```
+
+Cet axe oppose des *emprunteurs* (en haut) qui ne sont pas solvable et sont aussi plutôt interdits bancaires, à des *épargnants* avec beaucoup de réserve financière (et une grande ancienneté dans la banque) en bas. L'axe est surtout structuré par l'âge : on emprunte en début de cycle de vie, tandis qu'on est plus épargnants en fin de cycle de vie.
+
+On projette finalement l'ensemble du nuage des variables, en distinguant l'intensité des modalités suivant la qualité de représentation des modalités.
+
+```{r}
+fviz_mca_var(res.acm1,axes=c(1,2),alpha.var = "cos2" )
+```
+
+Examinons le taux modifié des premiers axes de l'ACM qui permet de mieux voir l'importance relative du premier axe. Il faut utiliser la fonction modif.rate du package GDAtools. On voit que pour le premier axe il correspond à 78% de l'information, contre 13% pour le second axe. Le premier axe structure donc très fortement les données.
+
+```{r}
+mrate<-modif.rate(res.acm1)
+mrate$modif
+```
+
+Appuyons-nous maintenant sur toutes les variables du fichier enq pour réaliser une seconde ACM (21 variables !).
+
+```{r}
+str(enq)
+```
+
+Cette fois, les variables de position sociale que nous souhaitons positionner en supplémentaire sont en position 1, 4, 5 du fichier enq.
+
+```{r}
+res.acm2<-MCA(enq,quali.sup=c(1,4,5),graph=F)
+```
+
+Regardons de nouveau combien d'axes analyser. D'après le critère du coude, on a plus nettement deux axes à garder ici.
+
+```{r}
+fviz_eig(res.acm2)
+```
+
+Le nuage des individus ne semble pas non plus présenter de structure particulière. Si on pinaillait, on irait regarder la contribution des individus à l'ACM car on a l'impression que certains d'entre eux contribuent bien davantage.
+
+```{r}
+fviz_mca_ind(res.acm2,alpha.ind = "contrib",label="none")
+```
+
+Le premier axe, interprétation à discuter :
+
+```{r}
+contrib1<-rownames(res.acm2$var$contrib)[res.acm2$var$contrib[,1]>100/nrow(res.acm2$var$contrib)]
+sigsup1<-rownames(res.acm2$quali.sup$v.test)[abs(res.acm2$quali.sup$v.test[,1])>1.96]
+fviz_mca_var(res.acm2,axes=c(1,2),
+             select.var=list(name = c(sigsup1,contrib1)))
+```
+
+Le second axe, interprétation à discuter :
+
+```{r}
+contrib2<-rownames(res.acm2$var$contrib)[res.acm2$var$contrib[,2]>100/nrow(res.acm2$var$contrib)]
+sigsup2<-rownames(res.acm2$quali.sup$v.test)[abs(res.acm2$quali.sup$v.test[,2])>1.96]
+fviz_mca_var(res.acm2,axes=c(1,2),
+             select.var=list(name = c(sigsup2,contrib2)))
+```
+
+L'ensemble des modalités sur le premier plan factoriel, en distinguant l'opacité suivant la qualité de représentation (cos2) :
+
+```{r}
+fviz_mca_var(res.acm2,axes=c(1,2),alpha="cos2")
 ```
