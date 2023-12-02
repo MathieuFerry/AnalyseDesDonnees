@@ -24,9 +24,9 @@ enq<-read_csv("TD7.csv")
 
 ```
 
-## Réalisez une CAH à partir de la dernière ACM réalisée au TD7. 
+## Réalisez une CAH à partir de la dernière ACM réalisée au TD7.
 
-*Attention, vous paramètrerez l\'analyse de telle sorte que le nombre d\'axes de l\'ACM retenus dans la classification correspondra au nombre d\'axes de l\'ACM à interpréter suivant le critère de Kaiser.*
+*Attention, vous paramètrerez l'analyse de telle sorte que le nombre d'axes de l'ACM retenus dans la classification correspondra au nombre d'axes de l'ACM à interpréter suivant le critère de Kaiser.*
 
 Il est demandé de réaliser une CAH à partir des coordonnées des clients de la banque sur les axes de l'ACM réalisée au TD7. Au TD7, nous avons interprété 2 axes de l'ACM, soit le premier plan factoriel. Ici, on va spécifiquement retenir l'ensemble des axes qui ont une inertie supérieure à l'inertie moyenne (critère de Kaiser), en se disant qu'ainsi ces axes apportent une information non négligeable à la compréhension de la variabilité des clients au sein de la banque.
 
@@ -78,7 +78,7 @@ plot.HCPC(res.hcpc1,choice="bar")
 
 Analysons d'abord les trois classes avant de regarder comment se configurent la partition en cinq classes.
 
-## Commentez la projection des classes sur le premier plan factoriel en fonction de son interprétation au TD7. 
+## Commentez la projection des classes sur le premier plan factoriel en fonction de son interprétation au TD7.
 
 La classe 1 est la plus à gauche sur l'axe 1 et correspond ainsi aux clients dont les pratiques bancaires sont peu intenses. La classe 2 est en haut de l'axe 2, a priori il s'agit des clients épargnants âgés. La classe 3 est plutôt en bas de l'axe 2, il s'agit a priori des clients emprunteurs plus jeunes.
 
@@ -101,15 +101,15 @@ names(cols) = unique(clust[tree_order])
 
 Note : chaque individu (client) est alloué à une classe et une seule. Cependant, les classes se superposent en partie sur le premier plan factoriel car on a utilisé les coordonnées des clients sur les 16 premiers axes de l'ACM ce qui signifie que l'allocation des individus aux classes ne dépend pas seulement des critères de différenciation sur le premier plan factoriel. Si on choisissait de réaliser la CAH sur les deux premiers axes seulement (ncp=2 dans la fonction MCA), on aurait une représentation graphique où les classes se superposeraient beaucoup moins.
 
-## Décrivez et interprétez les classes obtenues en fonction des variables actives et supplémentaires de l\'ACM (utiliser « desc.var »). Nommez ces classes. 
+## Décrivez et interprétez les classes obtenues en fonction des variables actives et supplémentaires de l'ACM (utiliser « desc.var »). Nommez ces classes.
 
 Résumons rapidement à quoi correspondent les classes de clients (les "segments de clientèle" de la banque) à l'aide des fonctions ci-dessous (la description est brève et doit être approfondie) :
 
--   La classe 1 (42% des clients) est la plus à gauche sur l\'axe 1 (activités bancaires peu intenses). Elle est de ce fait caractérisée par des clients qui n\'ont pas d\'activité bancaire et ont un solde de compte courant faible ou négatif. Près des deux tiers des clients de cette classe ont moins de 25 ans.
+-   La classe 1 (42% des clients) est la plus à gauche sur l'axe 1 (activités bancaires peu intenses). Elle est de ce fait caractérisée par des clients qui n'ont pas d'activité bancaire et ont un solde de compte courant faible ou négatif. Près des deux tiers des clients de cette classe ont moins de 25 ans.
 
--   La classe 2 (15%) est en haut sur l\'axe 2, il s\'agit de la classe des épargnants, clients âgés et retraités.
+-   La classe 2 (15%) est en haut sur l'axe 2, il s'agit de la classe des épargnants, clients âgés et retraités.
 
--   La classe 3 (42%) est en bas sur l\'axe 2, il s\'agit de la classe des emprunteurs et des gens qui ont beaucoup de mouvements bancaires.  
+-   La classe 3 (42%) est en bas sur l'axe 2, il s'agit de la classe des emprunteurs et des gens qui ont beaucoup de mouvements bancaires.  
 
 En précisant la description de ces classes, on pourrait les nommer, ce qui permettrait de résumer ainsi à quel segment de clientèle on a affaire.
 
@@ -129,7 +129,7 @@ res.hcpc1$desc.var
 
 ```
 
-## En inspectant le dendrogramme et l\'histogramme des gains d\'inertie interclasses entre deux partitions successives, vous justifierez de la possibilité d\'étudier une autre partition à partir de cette même CAH. 
+## En inspectant le dendrogramme et l'histogramme des gains d'inertie interclasses entre deux partitions successives, vous justifierez de la possibilité d'étudier une autre partition à partir de cette même CAH.
 
 On a plus haut donné les pistes permettant d'étudier plutôt la partition en cinq classes en suivant le critère du coude sur le diagramme de représentation des gains d'inertie inter-classe absolus.
 
@@ -171,7 +171,7 @@ fviz_cluster(res.hcpc2, show.clust.cent = TRUE)+
 
 ```
 
-## Décrivez cette autre partition : à quel emboitement par rapport à la partition précédente correspond-elle ? Décrivez cette nouvelle partition en fonction des variables de l\'ACM et nommez les classes obtenues. 
+## Décrivez cette autre partition : à quel emboitement par rapport à la partition précédente correspond-elle ? Décrivez cette nouvelle partition en fonction des variables de l'ACM et nommez les classes obtenues.
 
 En comparant les deux dendrogrammes, on voit déjà que c'est la classe 3 qui a été divisée en trois par rapport à la partition en trois classes.
 
