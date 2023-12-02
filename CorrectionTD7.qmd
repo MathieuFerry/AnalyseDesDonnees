@@ -90,7 +90,7 @@ fviz_mca_var(res.acm1,axes=c(1,2),
              select.var=list(name = c(sigsup2,contrib2)))
 ```
 
-Cet axe oppose des *emprunteurs* (en haut) qui ne sont pas solvable et sont aussi plutôt interdits bancaires, à des *épargnants* avec beaucoup de réserve financière (et une grande ancienneté dans la banque) en bas. L'axe est surtout structuré par l'âge : on emprunte en début de cycle de vie, tandis qu'on est plus épargnants en fin de cycle de vie.
+Cet axe oppose des *emprunteurs* (en haut) qui ne sont pas solvables et sont aussi plutôt interdits bancaires, à des *épargnants* avec beaucoup de réserve financière (et une grande ancienneté dans la banque) en bas. L'axe est surtout structuré par l'âge : on emprunte en début de cycle de vie, tandis qu'on est plus épargnants en fin de cycle de vie.
 
 On projette finalement l'ensemble du nuage des variables, en distinguant l'intensité des modalités suivant la qualité de représentation des modalités.
 
@@ -121,6 +121,7 @@ Regardons de nouveau combien d'axes analyser. D'après le critère du coude, on 
 
 ```{r}
 fviz_eig(res.acm2)
+res.acm2$eig[,1]>mean(res.acm2$eig[,1])
 ```
 
 Le nuage des individus ne semble pas non plus présenter de structure particulière. Si on pinaillait, on irait regarder la contribution des individus à l'ACM car on a l'impression que certains d'entre eux contribuent bien davantage.
