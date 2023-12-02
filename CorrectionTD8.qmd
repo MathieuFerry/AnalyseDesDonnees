@@ -12,6 +12,8 @@ La base de données est tirée du package ade4 et présente les résultats d'une
 *Note : ce TD comprend une partie de questions de cours corrigées en séance.*
 
 ```{r}
+#| warning: false
+
 library(readr)
 library(FactoMineR)
 library(factoextra)
