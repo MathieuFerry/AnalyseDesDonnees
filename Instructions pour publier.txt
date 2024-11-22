@@ -15,12 +15,14 @@ git commit -m "Correction25/10/23"
 git branch -M main
 git push -u origin main
 
+
+
+
 git remote set-url origin git@github.com:MathieuFerry/AnalyseDesDonnees.git
 
 
 git add .
 git commit -m "Correction22/11/24"
-git remote add origin https://github.com/MathieuFerry/AnalyseDesDonnees.git
 git branch -M main
 git push -u origin main
 

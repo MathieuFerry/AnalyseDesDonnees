@@ -323,7 +323,7 @@ fviz_mca_ind(acm2,
 
 ```
 
-23. Créer une nouvelle variable qui croise le sentiment d'appartenance à une classe (clso) et le niveau de qualification professionnel (clso). Faire un tri à plat pondéré de cette variable. Projeter cette nouvelle variable croisée en supplémentaire dans une nouvelle ACM. Cette variable explique-t-elle mieux un des axes que
+23. Créer une nouvelle variable qui croise le sentiment d'appartenance à une classe (clso) et le niveau de qualification professionnel (clso). Faire un tri à plat pondéré de cette variable. Projeter cette nouvelle variable croisée en supplémentaire dans une nouvelle ACM. Cette variable explique-t-elle mieux un des axes que les variables considérées indépendamment l'une de l'autre ? Quel est l'indicateur statistique pertinent pour l'affirmer ?
 
 ```{r}
 #| results: false
