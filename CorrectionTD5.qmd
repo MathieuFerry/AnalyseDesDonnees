@@ -39,7 +39,7 @@ library(explor)
 library(factoextra)
 
 
-setwd("E:/Enseignements/Cours UVSQ/Année 2023-2024/L3 Sociologie Analyse des données/TD/TD5")
+setwd("/Users/mathieuferry/Documents/Enseignements/Année 2023-2024/L3 Sociologie Analyse des données/TD/TD5")
 
 tab1<-read_csv2("tab1.csv")
 tab1<-column_to_rownames(tab1,var="...1")
@@ -255,7 +255,7 @@ Avec la fonction fviz_ca_col, on voit bien que le premier axe oppose très clair
 
 ```{r}
 ###Intégrer des colonnes supplémentaires à l'analyse
-setwd("E:/Enseignements/Cours UVSQ/Année 2023-2024/L3 Sociologie Analyse des données/TD/TD5")
+setwd("/Users/mathieuferry/Documents/Enseignements/Année 2023-2024/L3 Sociologie Analyse des données/TD/TD5")
 
 tab2<-read_csv2("tab2.csv")
 tab2<-column_to_rownames(tab2,var="...1")

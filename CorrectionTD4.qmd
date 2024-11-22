@@ -30,7 +30,8 @@ D'abord, comme d'habitude, il faut indiquer le bon répertoire de travail où se
 
 ```{r repertoire}
 # Répertoire de travail 
-setwd("E:/Enseignements/Cours UVSQ/Année 2023-2024/L3 Sociologie Analyse des données/TD/TD4")
+setwd("/Users/mathieuferry/Documents/Enseignements/Année 2023-2024/L3 Sociologie Analyse des données/TD/TD4")
+
 ```
 
 Dans ce TD, nous utilisons les packages listés ci-dessous.
@@ -55,7 +56,7 @@ Utilisons la fonction read_csv2 pour charger la base de données qui s'appelle "
 La ligne de code suivante utilise la fonction column_to_rownames du package tibble pour indiquer que la variable (colonne) PCS doit être considérée comme le libellé des lignes de la base.
 
 ```{r }
-setwd("E:/Enseignements/Cours UVSQ/Année 2023-2024/L3 Sociologie Analyse des données/TD/TD4")
+setwd("/Users/mathieuferry/Documents/Enseignements/Année 2023-2024/L3 Sociologie Analyse des données/TD/TD4")
 # Lecture du fichier : on place la première colonne comme nom de lignes  
 TD4 <- read_csv2("TD4.csv") 
 #Positionner la première colonne (nom des PCS) comme libellé des lignes (plutôt que comme colonne) 

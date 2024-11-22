@@ -21,7 +21,7 @@ library(explor)
 library(GDAtools)
 library(RColorBrewer)
 
-setwd("E:/Enseignements/Cours UVSQ/Année 2023-2024/L3 Sociologie Analyse des données/TD/TD7")
+setwd("/Users/mathieuferry/Documents/Enseignements/Année 2023-2024/L3 Sociologie Analyse des données/TD/TD7")
 enq<-read_csv("TD7.csv")
 
 ```

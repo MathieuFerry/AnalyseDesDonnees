@@ -40,7 +40,7 @@ On peut ensuite indiquer le répertoire où sont stockées les données et charg
 #| warning: false
 
 # Attribution du répertoire de travail : c'est l'emplacement physique oé se trouvent les jeux de données qui seront utilisés et crées
-setwd("E:/Enseignements/Cours UVSQ/Année 2023-2024/L3 Sociologie Analyse des données/TD/TD6")
+setwd("/Users/mathieuferry/Documents/Enseignements/Année 2023-2024/L3 Sociologie Analyse des données/TD/TD6")
 
 # AFC sur les résultats départementaux du premier tour des élections présidentielles
 # Lecture du fichier csv. 
@@ -188,7 +188,7 @@ library(sf)
 ##Pour zoomer sur l'ile de France
 library(ggmapinset)
 
-setwd("E:/Enseignements/Cours UVSQ/Année 2023-2024/L3 Sociologie Analyse des données/TD/TD6/Cartographie")
+setwd("/Users/mathieuferry/Documents/Enseignements/Année 2023-2024/L3 Sociologie Analyse des données/TD/TD6/Cartographie")
 dep <- st_read("DEPARTEMENT.shp")
 
 
