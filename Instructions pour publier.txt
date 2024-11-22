@@ -22,3 +22,5 @@ git commit -m "Correction22/11/24"
 git remote add origin https://github.com/MathieuFerry/AnalyseDesDonnees.git
 git branch -M main
 git push -u origin main
+
+git push -u https://MathieuFerry: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@github.com/MathieuFerry/AnalyseDesDonnees.git main
